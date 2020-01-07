@@ -1,14 +1,17 @@
 {
-  "name": "eth-sig-util",
-  "version": "2.5.2",
+  "name": "@exodus/eth-sig-util",
+  "version": "2.5.2-exodus0",
   "description": "A few useful functions for signing ethereum data",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/MetaMask/eth-sig-util.git"
+    "url": "git+ssh://git@github.com/ExodusMovement/eth-sig-util.git"
   },
   "keywords": [
     "ethereum",
@@ -17,9 +20,9 @@
   "author": "Dan Finlay",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MetaMask/eth-sig-util/issues"
+    "url": "https://github.com/ExodusMovement/eth-sig-util/issues"
   },
-  "homepage": "https://github.com/MetaMask/eth-sig-util#readme",
+  "homepage": "https://github.com/ExodusMovement/eth-sig-util#readme",
   "dependencies": {
     "buffer": "^5.2.1",
     "elliptic": "^6.4.0",
