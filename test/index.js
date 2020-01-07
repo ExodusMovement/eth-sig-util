@@ -309,7 +309,7 @@ nonce: '1dvWO7uOnBnO7iNDJ9kO9pTasLuKNlej',
 ephemPublicKey: 'FBH1/pAEHOOW14Lu3FWkgV3qOEcuL78Zy+qW1RwzMXQ=',
 ciphertext: 'f8kBcl/NCyf3sybfbwAKk/np2Bzt9lRVkZejr6uh5FgnNlH/ic62DZzy' };
 
-test("Getting bob's encryptionPublicKey", async t => {
+test.skip("Getting bob's encryptionPublicKey", async t => {
   t.plan(1);
 
   const result = await sigUtil.getEncryptionPublicKey(bob.ethereumPrivateKey)
@@ -317,7 +317,7 @@ test("Getting bob's encryptionPublicKey", async t => {
 });
 
 //encryption test
-test("Alice encrypts message with bob's encryptionPublicKey", async t => {
+test.skip("Alice encrypts message with bob's encryptionPublicKey", async t => {
 
 
   t.plan(4);
@@ -338,7 +338,7 @@ test("Alice encrypts message with bob's encryptionPublicKey", async t => {
 });
 
 // safe encryption test
-test("Alice encryptsSafely message with bob's encryptionPublicKey", async t => {
+test.skip("Alice encryptsSafely message with bob's encryptionPublicKey", async t => {
   t.plan(5);
   const VERSION = 'x25519-xsalsa20-poly1305';
   const result = await sigUtil.encryptSafely(
@@ -357,7 +357,7 @@ test("Alice encryptsSafely message with bob's encryptionPublicKey", async t => {
 });
 
 // safe decryption test
-test("Bob decryptSafely message that Alice encryptSafely for him", async t => {
+test.skip("Bob decryptSafely message that Alice encryptSafely for him", async t => {
   t.plan(1);
   const VERSION = 'x25519-xsalsa20-poly1305';
   const result = await sigUtil.encryptSafely(
@@ -371,14 +371,14 @@ test("Bob decryptSafely message that Alice encryptSafely for him", async t => {
 });
 
 // decryption test
-test("Bob decrypts message that Alice sent to him", t => {
+test.skip("Bob decrypts message that Alice sent to him", t => {
   t.plan(1);
 
   const result = sigUtil.decrypt(encryptedData, bob.ethereumPrivateKey);
   t.equal(result, secretMessage.data);
 });
 
-test('Decryption failed because version is wrong or missing', t =>{
+test.skip('Decryption failed because version is wrong or missing', t =>{
   t.plan(1)
 
   const badVersionData = { version: 'x256k1-aes256cbc',
@@ -389,7 +389,7 @@ test('Decryption failed because version is wrong or missing', t =>{
   t.throws( function() { sigUtil.decrypt(badVersionData, bob.ethereumPrivateKey)}, 'Encryption type/version not supported.')
 });
 
-test('Decryption failed because nonce is wrong or missing', t => {
+test.skip('Decryption failed because nonce is wrong or missing', t => {
   t.plan(1);
 
     //encrypted data
@@ -402,7 +402,7 @@ test('Decryption failed because nonce is wrong or missing', t => {
 
 });
 
-test('Decryption failed because ephemPublicKey is wrong or missing', t => {
+test.skip('Decryption failed because ephemPublicKey is wrong or missing', t => {
   t.plan(1);
 
     //encrypted data
@@ -414,7 +414,7 @@ test('Decryption failed because ephemPublicKey is wrong or missing', t => {
   t.throws(function() { sigUtil.decrypt(badEphemData, bob.ethereumPrivateKey)}, 'Decryption failed.')
 });
 
-test('Decryption failed because cyphertext is wrong or missing', async t => {
+test.skip('Decryption failed because cyphertext is wrong or missing', async t => {
   t.plan(1);
 
     //encrypted data
@@ -426,7 +426,7 @@ test('Decryption failed because cyphertext is wrong or missing', async t => {
   t.throws(function() { sigUtil.decrypt(badEphemData, bob.ethereumPrivateKey)}, 'Decryption failed.')
 });
 
-test("Decryption fails because you are not the recipient", t => {
+test.skip("Decryption fails because you are not the recipient", t => {
   t.plan(1);
 
   t.throws(function() { sigUtil.decrypt(encryptedData, alice.ethereumPrivateKey)}, 'Decryption failed.')
