@@ -1,6 +1,6 @@
 {
   "name": "@exodus/eth-sig-util",
-  "version": "2.5.2-exodus0",
+  "version": "2.5.2-exodus1",
   "description": "A few useful functions for signing ethereum data",
   "main": "index.js",
   "scripts": {
